@@ -1,0 +1,38 @@
+/* ==========================================================================
+    Created on : 23-giu-2013, 10.02.41
+    Author     : Gabriele D'Arrigo - @acirdesign - darrigo.g@gmail.com
+   ========================================================================== */
+input[type="file"] {
+    display: none;
+    visibility: hidden;
+}
+
+.image-uploaded {
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+}
+
+.image-uploaded img {
+    width: 300px;
+    height: 300px;
+}
+
+#uploader-panel {
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+}
+/*
+#uploader-panel ul li img {
+    height: 195px;
+}*/
+
+
+
+
+
+
+
