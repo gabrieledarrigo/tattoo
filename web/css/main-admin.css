@@ -1,0 +1,75 @@
+/* ==========================================================================
+    Created on : 23-giu-2013, 10.02.41
+    Author     : Gabriele D'Arrigo - @acirdesign - darrigo.g@gmail.com
+   ========================================================================== */
+
+body#login {
+    background: url('../img/background.jpg') no-repeat  transparent center center fixed;
+    background-size: cover;
+}
+
+#login {
+    margin: 100px auto;
+}
+#login h1 {
+    font-size: 45.5px;
+    margin: 25px auto;
+}
+
+#login strong {
+    margin: 5px auto;
+}
+
+#login input {
+    margin: 10px auto;
+}
+
+#login input[type="text"],
+#login input[type="password"] {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+}
+
+#uploader-panel {
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+}
+
+#uploader ul li img {
+    width: 260px;
+    height: 180px;
+}
+
+#upload-button {
+    font-size: 22px;
+    margin: 40px 0;
+}
+
+.thumbnail-row {
+    margin: 20px auto;
+}
+
+.thumbnail-row img {
+    width: 255px;
+    height: 228px;
+}
+
+input[type="file"] {
+    display: none;
+    visibility: hidden;
+}
+
+.image-uploaded {
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+}
+
+.image-uploaded img {
+    width: 300px;
+    height: 300px;
+}

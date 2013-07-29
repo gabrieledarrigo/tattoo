@@ -1,0 +1,18 @@
+<header>
+    <h1 class="title">Sketch</h1>
+</header>
+
+<ul class="thumbnails" data-bind="with: sketch">
+    <!-- ko foreach: rows -->
+    <div class="row-fluid">
+        <!-- ko foreach: $data -->
+        <li class="span3">
+            <a class="thumbnail" rel="group"
+               data-bind="attr: {src : image, title: title, alt : title}, click: $root.sketch.fancyBox" >
+                <img data-bind="attr: {src : image, title: title, alt : title}"/>
+            </a>
+        </li>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</ul>

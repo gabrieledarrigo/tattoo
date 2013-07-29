@@ -1,0 +1,38 @@
+<header>
+    <h1 class="title">Contatti</h1>
+</header>
+
+<iframe id="map"
+        frameBorder='0' 
+        src='http://a.tiles.mapbox.com/v3/gabrieledarrigo.map-5jemh38k.html#17/45.53039878970189/9.040812245368942'>
+</iframe>
+
+<article>
+    <div class="arrow-up"></div>
+
+    <h3>Pliz Tattoo - The Black Pearl</h3>
+    <p>Via Asilo 13, Rho 20017 MI</p>
+    <p>02/9305402    -   claimlpn@gmail.com</p>
+</article>
+
+<form id="form-contatti" data-bind="with: contact, submit: contact.sendData, visible: contact.formIsVisible">
+    <h2>Get in touch</h2>
+
+    <label>Nome</label>
+    <input type="text" required="required" placeholder="Name" data-bind="value: dataToSend.name"/>
+
+    <label>Email</label>
+    <input type="email" required="required" placeholder="Email" data-bind="value: dataToSend.email"/>
+
+    <label>Testo</label>
+    <textarea placeholder="Text" required="required" data-bind="value: dataToSend.message"></textarea>
+
+    <input type="submit"/>
+</form>
+
+<article class="message" data-bind="with: contact, visible: contact.formMessageIsVisible">
+    <header>
+        <h2>Thank You</h2>
+        <h3>I'll write you soon!</h3>
+    </header>
+</article>

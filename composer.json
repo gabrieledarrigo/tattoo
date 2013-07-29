@@ -26,9 +26,9 @@
     },
     "autoload": {
         "psr-0": {
-            "Models\\": "app/",
-            "Controllers\\": "app/",
-            "Services\\": "app/"
+            "Models\\": "src/",
+            "Controllers\\": "src/",
+            "Services\\": "src/"
         }
     }
 }

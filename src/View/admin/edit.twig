@@ -1,0 +1,151 @@
+{% extends "admin/layout.twig" %}
+
+{% block content %}
+<div id="section" data-section="{{ section }}" class="row">
+    <div data-bind="with: panel" class="span12">
+        <div data-bind="visible: statusMessageIsVisible, css: statusMessageClass">
+            <h2 data-bind="text: statusMessage"></h2>
+            <br/>
+            <div data-bind="visible: loaderIsVisible">
+                <img src="/web/img/ajax-loader.gif"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="span6" data-bind="visible: $root.panelIsVisible, with: panel">
+        <header>
+            <h2>{{title}}</h2>
+        </header>
+
+        <form id="form-biography" enctype="multipart/form-data" method="post" 
+              data-action="{{ action }}"
+              data-bind="submit: checkAction"
+              data-id="{{ id }}">
+
+            <label>Titolo</label>
+            <input class="input-xxlarge" type="text" name="title" required="required"
+                   placeholder="Scrivi qui il titolo"
+                   data-bind="value: dataToSend.title"/>
+
+            <label>Descrizione</label>
+            <textarea class="input-xxlarge" name="description" rows="12" required="required" 
+                      placeholder="Scrivi qui la descrizione"
+                      data-bind="value: dataToSend.description">
+            </textarea>
+
+            <br/>
+
+            <label>Pubblicato</label>
+
+            <label class="radio">
+                <input type="radio" name="published" value="SI" required="required" 
+                       data-bind="checked: dataToSend.published"/>
+                SI
+            </label>
+
+            <label class="radio">
+                <input type="radio" name="published" value="NO" required="required"
+                       data-bind="checked: dataToSend.published"/>
+                NO
+            </label>
+
+            <div class="btn btn btn-large btn-primary" data-bind="click: $root.showUploader">
+                <i class="icon-white icon-plus-sign"></i> Scegli Immagine
+            </div>
+
+            <input id="single-file" type="file"
+                   data-bind="event : {change: $root.uploader.fileHandler}"/>
+
+            <br/>
+            <br/>
+
+            <input type="hidden" name="id" data-bind="value: dataToSend.id"/>
+
+            <input type="submit" value="Aggiungi {{ section | capitalize }}" class="btn btn-large btn-success"/>
+        </form>
+    </div>
+
+    <div class="span6" data-bind="if: panel.dataToSend.image, visible: $root.previewIsVisible">
+        <div class="image-uploaded">
+            <h2>Immagine Caricata</h2>
+            <img data-bind="attr : {src : panel.dataToSend.image()}"/>
+        </div>
+    </div>
+
+    <div class="span6" data-bind="visible: $root.uploaderIsVisible, with: uploader">
+
+        <div id="uploader-panel">
+            <h2>Immagini caricate</h2>
+
+            <div class="alert alert-error" data-bind="visible: warningMessageIsVisible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Errore</strong> Puoi caricare solo immagini .jpg, .bmp, .gif
+            </div>
+
+            <div id="progress-panel">
+                <h4>Percentuale caricamento file</h4>
+
+                <div class="progress progress-striped active">
+                    <div class="bar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="image-list">
+                <ul class="thumbnails" data-bind="foreach: images">
+                    <li class="span4">
+                        <a href="#" class="thumbnail">
+                            <img data-bind="attr : {src : src, title: name}">
+                        </a>
+
+                        <h4>Dimensioni</h4>
+                        <p data-bind="text: size + ' Kilobyte'"></p>
+
+                        <div class="btn btn-danger" data-bind="click: $parent.removeImage">
+                            <i class="icon-white icon-trash"></i>Rimuovi
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div>
+        <a href="/admin/{{section}}" class="btn btn-large btn-warning pull-right">
+            <i class="icon-white icon-arrow-left"></i> Torna all'elenco
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+<script src="{{ app.request.baseUrl }}/web/js/view-model/admin/edit-panel.js"></script>
+<script src="{{ app.request.baseUrl }}/web/js/view-model/admin/single-uploader.js"></script>
+<script>
+    // Master view model. 
+    // Coordinate binding from panelViewModel and uploaderViewModel.
+    // Se visibility of sub view model.
+    var masterViewModel = {
+        panel: new panelViewModel(),
+        uploader: new uploaderViewModel(),
+        panelIsVisible: ko.observable(true),
+        uploaderIsVisible: ko.observable(false),
+        progressIsVisible: ko.observable(false),
+        previewIsVisible: ko.observable(true),
+        showUploader: function() {
+            $('#single-file').click();
+            masterViewModel.uploaderIsVisible(true);
+            masterViewModel.previewIsVisible(false);
+        },
+        uploadSuccess: function() {
+            masterViewModel.panelIsVisible(false);
+            masterViewModel.uploaderIsVisible(false);
+            masterViewModel.previewIsVisible(false);
+        }
+    };
+
+    ko.applyBindings(masterViewModel);
+    </script>
+{% endblock %}

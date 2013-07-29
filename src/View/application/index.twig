@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Pliz Tattoo</title>
+        <meta name="description" content="Pliz Tattoo - Tattoo, Sketch and Drawings.">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="icon" href="{{ app.request.baseUrl }}/web/img/favicon.ico" type="image/x-icon" />
+
+        <link rel="stylesheet" href="{{ app.request.baseUrl }}/web/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ app.request.baseUrl }}/web/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="{{ app.request.baseUrl }}/web/css/main-application.css">
+        <link rel="stylesheet" href="{{ app.request.baseUrl }}/web/css/jquery.fancybox.css" />
+
+        <script src="{{ app.request.baseUrl }}/web/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div id="navigation-menu-mobile" class="container" data-bind="with: navigation">
+            <h1>Pliz Tattoo</h1>
+
+            <a class="navigation-menu-btn" href="#" data-bind="click: navigationStatus">
+            </a>
+
+            <div class="row-fluid" data-bind="visible: navigationIsVisible">
+                <div id="navigation-menu" class="mobile">
+                    <nav>
+                        <ul>
+                            <li id="logo-small">
+                                <h1>
+                                    <a href="/" title="Pliz Tattoo">
+                                        <span>
+                                            Pliz Tattoo
+                                        </span>
+                                    </a>
+                                </h1>
+                            </li>
+                            <li>
+                                <a href="#!tattoo" data-bind="click: $root.loadPage" title="Tattoo">
+                                    Tattoo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!sketch" data-bind="click: $root.loadPage" title="Sketch">
+                                    Sketch
+                                </a>
+                            </li>
+                            <!--
+                            <li>
+                                <a data-bind="page-href: 'news'" title="News">
+                                    News
+                                </a>
+                            </li>
+                            -->
+                            <li>
+                                <a href="#!contact" data-bind="click: $root.loadPage" title="Contact">
+                                    Contatti
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!biography" data-bind="click: $root.loadPage" title="Biography">
+                                    Biography
+                                </a>
+                            </li>
+                            <li>
+                                <div class="social-link">
+                                    <a href="https://www.facebook.com/pages/Pliz-Tattoo-the-Black-Pearl/147053918793831?fref=ts" title="Follow me on Facebook">
+                                        <img src="{{ app.request.baseUrl }}/web/img/facebook-icon.png" 
+                                             title="Follow me on Facebook" alt="Follow me on Facebook"/>
+                                    </a>
+                                </div>
+
+                                <div class="social-link">
+                                    <a href="http://instagram.com/pliz_lpn/" title="Follow me on Instagram">
+                                        <img src="{{ app.request.baseUrl }}/web/img/instagram-icon.png" title="Follow me on Instagram" alt="Follow me on Instagram"/>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row-fluid">
+
+                <div id="navigation-menu" class="span3">
+                    <nav>
+                        <ul>
+                            <li id="logo-small">
+                                <h1>
+                                    <a href="/" title="Pliz Tattoo">
+                                        <span>
+                                            Pliz Tattoo
+                                        </span>
+                                    </a>
+                                </h1>
+                            </li>
+                            <li>
+                                <a href="#!tattoo" data-bind="click: $root.loadPage" title="Tattoo">
+                                    Tattoo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!sketch" data-bind="click: $root.loadPage" title="Sketch">
+                                    Sketch
+                                </a>
+                            </li>
+                            <!--
+                            <li>
+                                <a data-bind="page-href: 'news'" title="News">
+                                    News
+                                </a>
+                            </li>
+                            -->
+                            <li>
+                                <a href="#!contact" data-bind="click: $root.loadPage" title="Contact">
+                                    Contatti
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!biography" data-bind="click: $root.loadPage" title="Biography">
+                                    Biography
+                                </a>
+                            </li>
+                            <li>
+                                <div class="social-link">
+                                    <a href="https://www.facebook.com/pages/Pliz-Tattoo-the-Black-Pearl/147053918793831?fref=ts" title="Follow me on Facebook">
+                                        <img src="{{ app.request.baseUrl }}/web/img/facebook-icon.png" 
+                                             title="Follow me on Facebook" alt="Follow me on Facebook"/>
+                                    </a>
+                                </div>
+
+                                <div class="social-link">
+                                    <a href="http://instagram.com/pliz_lpn/" title="Follow me on Instagram">
+                                        <img src="{{ app.request.baseUrl }}/web/img/instagram-icon.png" title="Follow me on Instagram" alt="Follow me on Instagram"/>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div id="main" class="span9">
+                    <div  id="logo" data-bind="visible: $root.page.home">
+                        <figure>
+                            <img src="{{ app.request.baseUrl }}/web/img/logo.png" alt="Pliz Tattoo" title="Pliz Tattoo"/>
+                        </figure>
+
+                        <header>
+                            <hgroup>
+                                <h1>Pliz Tattoo</h1>
+                                <h2>The Black Pearl</h2>
+                            </hgroup>
+                        </header>
+                    </div>
+
+                    <div id="tattoo" data-bind="visible: $root.page.tattoo">
+
+                    </div>
+
+                    <div id="sketch" data-bind="visible: $root.page.sketch">
+
+                    </div>
+
+                    <!--
+                    <div id="news">
+                        <header>
+                            <h1 class="title">News</h1>
+                        </header>
+                    </div>
+                    -->
+
+                    <div id="biography" data-bind="visible: $root.page.biography">
+
+                    </div>
+
+                    <div id="contact" data-bind="visible: $root.page.contact">
+
+                    </div>
+
+                    <!--
+                    <div id="loader">
+                        <h3>Loading</h3>
+                        <img src="{{ app.request.baseUrl }}/web/img/ajax-loader.gif"/>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+    {% block javascript %}
+    <script src="{{ app.request.baseUrl }}/web/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/web/js/vendor/knockout-2.2.1.js"></script>
+    <script src="{{ app.request.baseUrl }}/web/js/vendor/bootstrap.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/web/js/vendor/jquery.fancybox.pack.js"></script>
+    {% endblock %}
+
+    <script>
+        var navigationViewModel = function() {
+            var self = this;
+
+            self.navigationIsVisible = ko.observable(false);
+            self.logoIsVisible = ko.observable(false);
+
+            // Hide or show navigation menu depending on the screen 
+            // resolution.
+            self.navigationStatus = function() {
+                if (self.navigationIsVisible() === false) {
+                    self.navigationIsVisible(true);
+                } else {
+                    self.navigationIsVisible(false);
+                }
+
+                self.checkHome();
+            };
+
+            self.getHash = function() {
+                var hash = window.location.hash;
+
+                return hash.substr(1);
+            };
+
+            self.checkHome = function() {
+                if (self.getHash() === '') {
+                    self.logoIsVisible(false);
+                } else {
+                    self.logoIsVisible(true);
+                }
+            };
+        };
+
+        var galleryViewModel = function(section) {
+            var self = this;
+
+            self.section = ko.observable(section);
+
+            self.items = ko.observableArray([]);
+            self.totalItems = ko.observable(0);
+
+            self.page = ko.observable(1);
+            self.totalPages = ko.observable(0);
+
+            // Subdivide image's array into an array of row.
+            // Each row is composed by a maximum number of four images.
+            self.rows = ko.computed(function() {
+                var itemsPerRow = 4;
+                var rowIndex = 0;
+                var rows = [];
+
+                for (var i = 0; i < self.items().length; i += 1) {
+                    if (!rows[rowIndex]) {
+                        rows[rowIndex] = [];
+                    }
+                    // Push into the row thw image.
+                    rows[rowIndex].push(self.items()[i]);
+
+                    // If maximum number item per row is reached than 
+                    // a new row is created.
+                    if (rows[rowIndex].length === itemsPerRow) {
+                        rowIndex += 1;
+                    }
+                }
+
+                return rows;
+            });
+
+            self.fancyBox = function(data, event) {
+                var image = {
+                    href: event.currentTarget.firstElementChild.src,
+                    title: event.currentTarget.firstElementChild.title
+                };
+
+                $.fancybox.open([image], {
+                    scrolling: 'no'
+                });
+            };
+
+            self.getHash = function() {
+                var hash = window.location.hash;
+
+                return hash.substr(2);
+            };
+
+            // Load data only if user has reached the bottom of the page.
+            self.checkScroll = function() {
+                if ($(window).scrollTop() >= $(document).height() - $(window).height() - 60) {
+                    if (self.page() < self.totalPages()) {
+                        self.page(self.page() + 1);
+                        self.loadData(self.page());
+                    }
+                }
+            };
+
+            //Load data from the server.
+            self.loadData = function(page) {
+                // Attach an event handler to scroll event
+                // to perform infinite scrolling navigation
+                $(window).on('scroll', function() {
+                    self.checkScroll();
+                });
+
+                $.ajaxSetup({
+                    beforeSend: function() {
+                        $('#loader').show();
+                    },
+                    complete: function() {
+                        $('#loader').hide();
+                    }
+                });
+
+                // Load the images.
+                $.get('/' + self.section() + '?page=' + self.page(), function(results) {
+                    self.totalItems(results.totalItems);
+                    self.totalPages(results.totalPages);
+
+                    for (var i = 0; i < results['items'].length; i += 1) {
+                        self.items.push(results['items'][i]);
+                    }
+                });
+            };
+
+            self.loadData(self.page());
+        };
+
+        // Extend tattooViewModel with galleryViewModel method and properties.
+        var tattooViewModel = function() {
+            var self = this;
+            ko.utils.extend(self, new galleryViewModel('tattoo'));
+        };
+
+        // Extend sketchViewModel with galleryViewModel method and properties.
+        var sketchViewModel = function() {
+            var self = this;
+            ko.utils.extend(self, new galleryViewModel('sketch'));
+        };
+
+        var biographyViewModel = function() {
+            var self = this;
+
+            // Observables that store biography data.
+            self.content = {
+                title: ko.observable(''),
+                description: ko.observable(''),
+                image: ko.observable('')
+            };
+
+            // Load data from the server.
+            self.loadData = function() {
+                $.get('/biography', function(results) {
+                    self.content.title(results[0].title);
+                    self.content.description(results[0].description);
+                    self.content.image(results[0].image)
+                });
+            };
+
+            self.loadData();
+        };
+
+        var contactViewModel = function() {
+            var self = this;
+
+            // Observable data that will be sent to the server.
+            self.dataToSend = {
+                name: ko.observable(''),
+                email: ko.observable(''),
+                message: ko.observable('')
+            };
+
+            // Form status.
+            self.formIsVisible = ko.observable(true);
+            self.formMessage = ko.observable('');
+            self.formMessageIsVisible = ko.observable(false);
+
+            // Set message visibility and textual content.
+            self.showFormMessage = function(message, status) {
+                self.formMessage(message);
+                self.formMessageIsVisible(status);
+            };
+            // Submit the form to the server.
+            self.sendData = function() {
+                $.post('/contact', ko.toJS(self.dataToSend), function(result) {
+                    self.formIsVisible(false);
+
+                    if (result.code === 200) {
+                        self.showFormMessage('Thank you', true);
+                    } else {
+                        self.showFormMessage('Error in sending email', true);
+                    }
+                });
+            };
+        };
+
+        var masterViewModel = {
+            navigation: new navigationViewModel(),
+            page: {
+                home: ko.observable(true),
+                tattoo: ko.observable(false),
+                sketch: ko.observable(false),
+                contact: ko.observable(false),
+                biography: ko.observable(false)
+            },
+            checkIfPageIsLoaded: function(hash) {
+                if (masterViewModel.hasOwnProperty(hash)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            loadPage: function(data, event) {
+                // Retrieve the hash.
+                var hash = event.currentTarget.hash.substr(2);
+
+                // If view model was already instantiated then 
+                // show the page and exit from the function.
+                if (masterViewModel.checkIfPageIsLoaded(hash)) {
+                    masterViewModel.setPageVisibility(hash);
+
+                    return false;
+                }
+
+                // Load dinamically the template and populate
+                // relative section.
+                $.get('/template/' + hash, function(result) {
+                    $('#' + hash).html(result);
+
+                    var viewModelName = hash + 'ViewModel';
+
+                    // Istance of the right View Model.
+                    masterViewModel[hash] = new window[viewModelName](hash);
+
+                    ko.applyBindings(masterViewModel, $('#' + hash)[0]);
+
+                    // Hide all page instead the requested ones.
+                    masterViewModel.setPageVisibility(hash);
+                    
+                    masterViewModel.navigation.navigationStatus();
+                });
+
+                return true;
+            },
+            setPageVisibility: function(hash) {
+                if (masterViewModel.page.hasOwnProperty(hash)) {
+                    for (var i in masterViewModel.page) {
+                        masterViewModel.page[i](false);
+                    }
+                    masterViewModel.page[hash](true);
+                }
+            }
+        };
+
+        ko.applyBindings(masterViewModel);
+        </script>
+    </body>
+</html>
